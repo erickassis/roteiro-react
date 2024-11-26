@@ -1,19 +1,19 @@
-// App.js
-import React from "react";
-import Logo from "./components/Logo";
-import Navegacao from "./components/Navegacao";
-import Topo from "./components/Topo";
-import Principal from "./components/Principal"; 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './pages/Login.page';
+import firebaseConfig from './firebase';
+import Home from './pages/Home.page';
+import { initializeApp } from "firebase/app";
 
-const App = () => {
+export const app = initializeApp(firebaseConfig);
+
+function App() {
   return (
-    <>
-      <header className="topo">
-        <Principal />
-        <Logo />
-        <Navegacao />
-      </header>
-    </>
+    <Router>
+      <Routes>
+        <Route path= "/" element= {<Home />} />
+        <Route path="/login" element= {<Login />} />
+      </Routes>
+    </Router>
   );
 }
 
