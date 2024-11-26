@@ -5,7 +5,7 @@ interface BookFormProps {
   onAddBook: (book: Book) => void;
 }
 
-const BookForm = ({ onAddBook }) => {
+const BookForm: React.FC<BookFormProps> = ({ onAddBook }) => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [year, setYear] = useState<number | ''>('');
